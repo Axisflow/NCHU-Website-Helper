@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NCHU Portal Helper for Loginning
 // @namespace    https://idp.nchu.edu.tw/
-// @version      0.1.9
+// @version      0.1.10
 // @description  興大入口自動登入
 // @homepage     https://www.nchu.edu.tw/
 // @author       Axisflow
@@ -20,8 +20,12 @@
 
     /* Main Program */
 
-    if(window.location.pathname == "/nidp/idff/sso" && window.location.search.search("option=credential") != -1) {
+    if(window.location.pathname == "/nidp/idff/sso") {
         document.getElementsByTagName('input')[2].value = code;
+
+        if(window.location.search.search("option=credential") != -1) {
+            document.getElementsByTagName('button')[0].click();
+        }
     }
 
 })();

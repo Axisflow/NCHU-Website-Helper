@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         NCHU Portal Helper for Loginning
+// @name         NCHU Portal Helper for Logging in
 // @namespace    https://idp.nchu.edu.tw/
-// @version      0.1.11
+// @version      0.1.12
 // @description  興大入口自動登入
 // @homepage     https://github.com/Axisflow
 // @author       Axisflow

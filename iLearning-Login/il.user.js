@@ -3,7 +3,7 @@
 // @namespace    https://lms2020.nchu.edu.tw/
 // @description  興大 iLearning 3.0 自動登入
 // @homepage     https://github.com/Axisflow
-// @version      0.1.3
+// @version      0.1.4
 // @author       Axisflow
 // @match        https://lms2020.nchu.edu.tw/*
 // @icon         https://lms2020.nchu.edu.tw/sysdata/siteInfo/5def_16x16.png
@@ -351,15 +351,23 @@
         return min;
     }
 
+    function process() {
+        try {
+            let code_img = crop2D(reshape2D(forEach(toRGBA(getImageData(code_elements[0]))[2], (function (x) { return x < threshold ? 1 : 0; })), code_elements[0].height, code_elements[0].width), left_align, top_align, code_w * code_count, code_h);
+            let numbers = '';
+            for(let i = 0; i < code_count; i++) {
+                numbers += predict_code(crop2D(code_img, code_w * i, 0, code_w, code_h));
+            }
+
+            document.getElementsByClassName('fs-form-captcha-field')[0].value = numbers;
+        } catch(e) {
+            window.setTimeout(process, 250);
+        }
+    }
+
     let code_elements = document.getElementsByClassName('js-captcha');
     if(code_elements.length > 0) {
-        let code_img = crop2D(reshape2D(forEach(toRGBA(getImageData(code_elements[0]))[2], (function (x) { return x < threshold ? 1 : 0; })), code_elements[0].height, code_elements[0].width), left_align, top_align, code_w * code_count, code_h);
-        let numbers = '';
-        for(let i = 0; i < code_count; i++) {
-            numbers += predict_code(crop2D(code_img, code_w * i, 0, code_w, code_h));
-        }
-
-        document.getElementsByClassName('fs-form-captcha-field')[0].value = numbers;
+        process();
     }
 
 })();

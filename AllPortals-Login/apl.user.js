@@ -5,6 +5,7 @@
 // @homepage     https://github.com/Axisflow
 // @version      0.1.5
 // @author       Axisflow
+// @match        https://idp.nchu.edu.tw/*
 // @match        https://lms2020.nchu.edu.tw/*
 // @match        https://onepiece.nchu.edu.tw/ps/plsql/*
 // @match        https://onepiece2-sso.nchu.edu.tw/ps/plsql/*

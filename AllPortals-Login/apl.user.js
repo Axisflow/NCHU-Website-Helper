@@ -3,7 +3,7 @@
 // @namespace    https://www.nchu.edu.tw/
 // @description  興大系統入口自動填寫驗證碼
 // @homepage     https://github.com/Axisflow
-// @version      0.1.6
+// @version      0.1.7
 // @author       Axisflow
 // @match        https://idp.nchu.edu.tw/*
 // @match        https://lms2020.nchu.edu.tw/*
